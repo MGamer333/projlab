@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/src/blindvirologist/ChoreaMinor.java" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/src/blindvirologist/Code.java" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/src/blindvirologist/Game.java" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/src/blindvirologist/Laboratory.java" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/src/blindvirologist/VirologistController.java" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/src/blindvirologist/VirologistOld.java" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/src/blindvirologist/agent/Agent.java" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/src/blindvirologist/agent/Agent.java" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/src/blindvirologist/field/Field.java" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/src/blindvirologist/field/Field.java" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/src/skeleton/Skeleton.java" charset="ISO-8859-1" />
+  </component>
+</project>
