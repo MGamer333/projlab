@@ -36,7 +36,12 @@ public abstract class Agent
 	 */
 	public boolean decreaseUsableTime()
 	{
-		return (usable -= Agent.usableDecreaseValue) < 1;
+		if ( this.usable != -1 )
+		{
+			return (usable -= Agent.usableDecreaseValue) < 1;
+		}
+
+		return true;
 	}
 
 	/**
@@ -45,6 +50,11 @@ public abstract class Agent
 	 */
 	public boolean decreaseDuration()
 	{
-		return (duration -= Agent.usableDecreaseValue) < 1;
+		if ( this.duration != -1 )
+		{
+			return (duration -= Agent.usableDecreaseValue) < 1;
+		}
+
+		return true;
 	}
 }

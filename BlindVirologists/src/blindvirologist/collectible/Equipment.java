@@ -1,7 +1,5 @@
 package blindvirologist.collectible;
     import blindvirologist.Virologist;
-    import customexceptions.AgentBlockedException;
-    import customexceptions.GloveException;
 
 
 /**
@@ -26,5 +24,5 @@ public abstract class Equipment
      * @param _virologist a viselő virológus
      * @throws Exception kivétel
      */
-    public abstract void handleEffect( Virologist _virologist ) throws GloveException, AgentBlockedException;
+    public abstract void handleEffect( Virologist _virologist ) throws Exception;
 }

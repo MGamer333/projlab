@@ -1,6 +1,9 @@
 package blindvirologist.field;
 
+import blindvirologist.Virologist;
+import blindvirologist.agent.BearVirusAgent;
 import blindvirologist.agent.GeneticCode;
+import customexceptions.GloveException;
 
 /**
  * Laboratórium mező
@@ -10,6 +13,7 @@ import blindvirologist.agent.GeneticCode;
 public class Laboratory extends Field
 {
     private GeneticCode code;
+    private boolean affected;
 
     /**
      * Konstruktor
@@ -18,6 +22,18 @@ public class Laboratory extends Field
     public Laboratory( GeneticCode _code )
     {
         this.code = _code;
+        this.affected = false;
+    }
+
+
+    public void setAffected(boolean affected)
+    {
+        this.affected = affected;
+    }
+
+    public boolean isAffected()
+    {
+        return affected;
     }
 
     /**
@@ -27,5 +43,21 @@ public class Laboratory extends Field
     public GeneticCode getGeneticCode()
     {
         return this.code;
+    }
+
+    @Override
+    public void action(Virologist _virologist)
+    {
+        if ( this.affected )
+        {
+            try
+            {
+                _virologist.addAgent( new BearVirusAgent( -1, -1 ));
+            }
+            catch ( GloveException ex )
+            {
+                // TODO
+            }
+        }
     }
 }

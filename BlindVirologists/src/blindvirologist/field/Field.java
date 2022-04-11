@@ -87,4 +87,10 @@ public class Field
 	{
 		return neighbors;
 	}
+
+
+	public void action( Virologist _virologist )
+	{
+		return;
+	};
 }

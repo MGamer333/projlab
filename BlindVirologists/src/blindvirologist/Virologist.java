@@ -234,6 +234,10 @@ public class Virologist
             {
                 System.err.println( "Ágens blokkolva" );
             }
+            catch ( Exception ex )
+            {
+                System.err.println( "Ismeretlen kivétel" );
+            }
         }
 
         Logger.log( "<","Virologist", "" );
@@ -390,5 +394,10 @@ public class Virologist
         }
 
         Logger.log( "<", "Virologist", "" );
+    }
+
+    public void die()
+    {
+        // TODO
     }
 }

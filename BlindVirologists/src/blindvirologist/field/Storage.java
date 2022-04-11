@@ -41,7 +41,7 @@ public class Storage extends Field
     public int getNucleotidCount()
     {
         Logger.log(">", "Storage", "Nukleotid lekerese");
-        Logger.log("<", "Storage", "");
+        Logger.log("<", "Storage", "C");
         return nucleotidCount;
     }
 

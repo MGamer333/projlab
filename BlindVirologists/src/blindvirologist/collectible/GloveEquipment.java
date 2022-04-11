@@ -1,6 +1,7 @@
 package blindvirologist.collectible;
     import blindvirologist.Virologist;
     import customexceptions.GloveException;
+    import customexceptions.ItemBrokeException;
 
 
 /**
@@ -25,7 +26,7 @@ public class GloveEquipment extends Equipment
      * @throws Exception kivétel
      */
     @Override
-    public void handleEffect(Virologist _virologist) throws GloveException
+    public void handleEffect(Virologist _virologist) throws GloveException, ItemBrokeException
     {
         if ( this.usableCount > 0 )
         {
