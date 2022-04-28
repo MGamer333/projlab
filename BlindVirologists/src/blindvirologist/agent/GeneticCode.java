@@ -1,15 +1,37 @@
 package blindvirologist.agent;
 
 /**
- * Ágens genetikai kódja
+ * Genetikai kódokat megvalósító osztály
+ * Egy ágenshez tartozó genetikai kódot valósít meg.
+ * Laboratóriumok falán található meg, onnan tanulható, és így szórható
+ * lesz az ágens
  */
 public abstract class GeneticCode
 {
+    /**
+     * nucleotidCost: Az ágens készítéséhez szükséges nukleotid költség
+     */
     private int nucleotidCost;
+
+    /**
+     * aminoacidCost: Az ágens készítéséhez szükséges aminósav költség
+     */
     private int aminoacidCost;
 
     /**
+     * TODO
+     */
+    public static int DefaultNucleotidCost = 1;
+
+    /**
+     * TODO
+     */
+    public static int DefaultAminoacidCost = 1;
+
+
+    /**
      * Konstruktor
+     * A privát adattagok értékeit állítja be
      * @param _nucleotid az ágens létrehozásához szükséges nukleotid mennyiség
      * @param _aminoacid az ágens létrehozásához szükséges aminósav mennyiség
      */
@@ -20,7 +42,7 @@ public abstract class GeneticCode
     }
 
     /**
-     * Létrehoz egy ágenst
+     * Ágenst létrehozó metódus. Elkészíti a kódhoz tartozó ágenst
      * @return a létrehozott ágens
      */
     public abstract Agent createAgent();
@@ -42,4 +64,7 @@ public abstract class GeneticCode
     {
         return this.aminoacidCost;
     }
+
+
+    public abstract String toString();
 }

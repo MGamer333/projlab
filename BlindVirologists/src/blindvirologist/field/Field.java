@@ -1,21 +1,31 @@
 package blindvirologist.field;
 	import blindvirologist.Virologist;
+	import blindvirologist.agent.GeneticCode;
+	import blindvirologist.collectible.Equipment;
 	import skeleton.Logger;
-
 	import java.util.ArrayList;
 	import java.util.List;
 
 
 /**
- * A j�t�kt�r mez?it megval�s�t� alap�rtelmezett mez? ?soszt�ly
+ * A játéktér mezőit megvalósító osztály.
+ * A mezőhöz tartozó funkciókat valósítja meg. Reprezentál egy általános típusú mezőt
  */
 public class Field
 {
+	/**
+	 * neighbors: A mező szomszédai
+	 */
 	private List<Field>		neighbors;
-	private Virologist 		currentVirologist;
+
+	/**
+	 * currentVirologist: a mezőn álló virológus
+	 */
+	protected Virologist 		currentVirologist;
 
 	/**
 	 * Konstruktor
+	 * Beállítja a privát adattagok értékeit
 	 */
 	public Field()
 	{
@@ -24,9 +34,9 @@ public class Field
 	}
 
 	/**
-	 * Megadja a param�terben kapott mez?r�l, hogy az szomsz�dja-e
-	 * @param _field a k�rdezett mez?
-	 * @return szomsz�dja-e
+	 * Megadja a paraméterben kapott mezőröl, hogy az szomszédja-e annak
+	 * @param _field a kérdezett mező
+	 * @return szomszédja-e
 	 */
 	public boolean isNeighbor( Field _field )
 	{
@@ -46,8 +56,16 @@ public class Field
 	}
 
 	/**
-	 * Leveszi a mez?r?l a rajta �ll� virol�gust
-	 * @return a mez?n �ll� virol�gus
+	 * TODO
+	 * @return
+	 */
+	public Virologist getCurrentVirologist() {
+		return currentVirologist;
+	}
+
+	/**
+	 * Leveszi a mezőről a rajta álló virológust
+	 * @return a mezőn álló virológus
 	 */
 	public Virologist removeVirologist()
 	{
@@ -60,8 +78,8 @@ public class Field
 	}
 
 	/**
-	 * Hozz�adja a mez?h�z a param�terben kapott virol�gust
-	 * @param _virologist a virol�gus
+	 * Hozzáadja a mezőhöz a paraméterben kapott virológust
+	 * @param _virologist a virológus
 	 */
 	public void addVirologist( Virologist _virologist )
 	{
@@ -71,17 +89,20 @@ public class Field
 	}
 
 	/**
-	 * Hozz�adja a param�terben kapott mez?t a szomsz�djai list�hoz
-	 * @param _neighbor szomsz�dos mez?
+	 * Hozzáadja a paraméterben kapott mezőt a szomszédjai listához
+	 * @param _neighbor a szomszédos mező
 	 */
 	public void addNeighbor( Field _neighbor )
 	{
+		if ( this.neighbors.contains( _neighbor ) ) return;
+
 		this.neighbors.add( _neighbor );
+		_neighbor.neighbors.add( this );
 	}
 
 	/**
-	 * Szomsz�dos mez?knek a gettere
-	 * @return szomsz�dos mez?k
+	 * Szomszédos mezőknek a gettere
+	 * @return szomszédos mezők
 	 */
 	public List<Field> getNeighbors()
 	{
@@ -89,8 +110,58 @@ public class Field
 	}
 
 
+	/**
+	 * A mezőrelépéskor történő akció.
+	 * Akkor fut le amikor egy virológus a mezőre lép
+	 * @param _virologist
+	 */
 	public void action( Virologist _virologist )
 	{
+		// TODO
 		return;
 	};
+
+
+
+	public boolean addEquipment( Equipment _equipment )
+	{
+		return false;
+	}
+
+	/**
+	 * TODO
+	 * @param code
+	 */
+	public boolean setGeneticCode(GeneticCode code)
+	{
+		return false;
+	}
+
+	/**
+	 * TODO
+	 * @param affected
+	 * @return
+	 */
+	public boolean setAffected(boolean affected)
+	{
+		return false;
+	}
+
+	/**
+	 * TODO
+	 * @return
+	 */
+	public GeneticCode getGeneticCode()
+	{
+		return null;
+	}
+
+	public Equipment getEquipment()
+	{
+		return null;
+	}
+
+	public void removeEquipment()
+	{
+	}
 }

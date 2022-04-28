@@ -3,16 +3,20 @@ package blindvirologist.agent;
     import skeleton.Logger;
 
 /**
- * Elfelejtő vírus
+ * Felejtés vírus osztály genetikai kódja, egy genetikai kód
  */
 public class ForgetAgentGeneticCode extends GeneticCode
 {
+    /**
+     * duration: Statikus változó, a szórt ágens hatásának idejét határozza meg
+     */
     public static int duration = 1;
 
     /**
      * Konstruktor
-     * @param _nucleotid
-     * @param _aminoacid
+     * Beállítja a privát adattagjainak értékét
+     * @param _nucleotid nukleotid költség
+     * @param _aminoacid aminósav költség
      */
     public ForgetAgentGeneticCode( int _nucleotid, int _aminoacid )
     {
@@ -20,8 +24,8 @@ public class ForgetAgentGeneticCode extends GeneticCode
     }
 
     /**
-     * Létrehoz egy elfelejtő ágenst
-     * @return egy új ágens
+     * Létrehozza a felejtő vírust
+     * @return az ágens
      */
     @Override
     public Agent createAgent()
@@ -33,5 +37,10 @@ public class ForgetAgentGeneticCode extends GeneticCode
         Logger.log( "<", "ForgetAgentGeneticCode", "" );
 
         return agent;
+    }
+
+    @Override
+    public String toString() {
+        return "ForgetAgent";
     }
 }

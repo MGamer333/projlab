@@ -4,19 +4,40 @@ package blindvirologist.agent;
 
 
 /**
- * Az �genseket megval�s�t� absztrakt oszt�ly
- * A v�rusok �s vakcin�k ?soszt�lya
+ * Az ágenseket megvalósító absztrakt osztály.
+ * A vírusok és vakcinák megvalósításához szükséges osztály
+ * Egy ágenst reprezentál amit készíteni és szórni lehet.
  */
 public abstract class Agent
 {
+	/**
+	 * usableDecreaseValue: statikus változó, azt határozza meg, hogy körönként hány egységgel
+	 * csökkenjen az ágens használati, és hatási ideje
+	 */
 	private static int 	usableDecreaseValue = 1;
+
+	/**
+	 * duration: az ágens hatásának ideje, addig érvényesül a hatása amíg ez nullára nem csökken
+	 */
 	protected int		duration;
-	private int 		usable;
+
+	/**
+	 * usable: az ágens elkészítése utáni felhasználhatósági ideje, addig szórható az ágens,
+	 * amíg ez az érték nullára nem csökken
+	 */
+	protected int 		usable;
+
+	/**
+	 * code: az ágenshez tartozó genetikai kód, az ágens készítéséhez szükséges kód,
+	 * ami laborok falára van felvésve, és onnan tanulható
+	 */
 	private GeneticCode code;
+
 
 	/**
 	 * Konstruktor
-	 * @param _duration az �gens hat�s�nak ideje
+	 * Beállítja a privát változók értékeit
+	 * @param _duration az ágens hatásának ideje
 	 */
 	public Agent( int _duration, int _usable )
 	{
@@ -25,36 +46,46 @@ public abstract class Agent
 	}
 
 	/**
-	 * Az �gens kifejti a hat�s�t a param�terk�nt kapott virol�gusra
-	 * @param _virologist a virol�gus, amin a hat�s�t kifejti
+	 * Az ágens kifejti a hatását a paraméterként kapott virológusra
+	 * Egy ágens szórását valósítja meg
+	 * @param _virologist a virológus, amin a hatását kifejti
+	 * @throws AgentBlockedException amikor a virológus akire az ágenst szórják,
+	 * kivédi a szórást
 	 */
 	public abstract void affect( Virologist _virologist ) throws AgentBlockedException;
 
 	/**
-	 * Az �gens felhaszn�lhat�s�gi idej�t cs�kkenti
-	 * @return az �gens felhaszn�lhat�-e
+	 * Az ágens miután lejárt az ideje le kell vennie a hatását a virológusról
+	 * @param _virologist a virológus
+	 */
+	public abstract void remove( Virologist _virologist);
+
+	/**
+	 * Az ágens felhasználhatósági idejét csökkenti és megadja,
+	 * hogy az felhasználható-e még
+	 * Minden játékkör végén csökkenteni kell a felhasználhatósági id?t
+	 * @return az ágens felhasználható-e
 	 */
 	public boolean decreaseUsableTime()
 	{
-		if ( this.usable != -1 )
-		{
-			return (usable -= Agent.usableDecreaseValue) < 1;
-		}
+		this.usable--;
 
-		return true;
+		return this.usable > 0;
 	}
 
 	/**
-	 * Az �gens hat�s�nak idej�t cs�kkenti
-	 * @return az �gens felhaszn�lhat�-e
+	 * Az ágens virológusra kifejtett hatásának idejét csökkenti és megadja,
+	 * hogy az hat-e még
+	 * Minden játékkör végén csökkenteni kell a felhasználhatósági id?t
+	 * @return az ágens felhasználható-e
 	 */
 	public boolean decreaseDuration()
 	{
-		if ( this.duration != -1 )
-		{
-			return (duration -= Agent.usableDecreaseValue) < 1;
-		}
+		this.duration--;
 
-		return true;
+		return this.duration > 0;
 	}
+
+	@Override
+	public abstract String toString();
 }

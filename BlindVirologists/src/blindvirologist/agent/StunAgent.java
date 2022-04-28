@@ -1,13 +1,18 @@
 package blindvirologist.agent;
+    import blindvirologist.Virologist;
 
-import blindvirologist.Virologist;
 
+/**
+ * Bénító vírus osztály, egy ágens típus.
+ * A virológus akire szórják, lebénult állapotba kerül, addig nem tud mozogni amíg hatása tart
+ */
 public class StunAgent extends Agent
 {
     /**
      * Konstruktor
-     * @param _duration
-     * @param _usable
+     * Beállítja a privát adattagjainak értékét
+     * @param _duration ágens hatási ideje
+     * @param _usable ágens meddig felhasználható
      */
     public StunAgent( int _duration, int _usable )
     {
@@ -15,12 +20,22 @@ public class StunAgent extends Agent
     }
 
     /**
-     * Hatáskifejtő metódus az ágensnek
+     * A bénító vírus kifejti hatását a virológusra
      * @param _virologist a virológus, amin a hatását kifejti
      */
     @Override
     public void affect( Virologist _virologist )
     {
         _virologist.setStunned( this.duration > 0 );
+    }
+
+    @Override
+    public void remove(Virologist _virologist) {
+        return;
+    }
+
+    @Override
+    public String toString() {
+        return "StunAgent{duration="+duration+", usable="+usable+"}";
     }
 }

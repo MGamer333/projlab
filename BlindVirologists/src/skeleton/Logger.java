@@ -6,6 +6,6 @@ public class Logger
 
     public static void log( String mark, String object, String input )
     {
-        System.out.println( mark + " " + Logger.tab + " [" + object + "] " + input );
+        //System.out.println( mark + " " + Logger.tab + " [" + object + "] " + input );
     }
 }

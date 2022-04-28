@@ -368,25 +368,21 @@ public class Skeleton
                     }
                     catch(Exception ex) {}
 
-                    player1.stealEquipment(player2, eq);
                 }
                 else
                 {
-                    player1.stealEquipment(player2, eq);
                 }
             }
             else
             {
                 player1.setLocation(field2);
                 player2.setLocation(laboratory);
-
-                player1.stealEquipment(player2, eq);
             }
         }
         else
         {
             player2.setStunned(false);
-            player1.stealEquipment(player2, eq);
+
         }
     }
 
@@ -402,7 +398,6 @@ public class Skeleton
         if ( input.equals( "I" ) )
         {
             player1.setLocation(laboratory);
-            player1.learnCode( laboratory.getGeneticCode() );
         }
         else
         {

@@ -5,6 +5,11 @@ package customexceptions;
  */
 public class ItemBrokeException extends Exception
 {
+    /**
+     * Konstruktor
+     * Továbbítja a hibaüzenetet az ősosztálynak
+     * @param msg a  hibaüzenet
+     */
     public ItemBrokeException( String msg )
     {
         super( msg );

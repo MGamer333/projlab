@@ -1,51 +1,52 @@
 package blindvirologist.field;
     import blindvirologist.collectible.Equipment;
-
     import java.util.ArrayList;
     import java.util.List;
 
 
 /**
- * Óvóhely mező
- * Ezen a mezőn vehet fel védőfelszereléseket
- * a rajt álló virológus
+ * Óvóhely mező, egy mező típus.
+ * Ezen a mezőn vehet fel védőfelszereléseket a rajt álló virológus
  */
 public class Bunker extends Field
 {
-    private List<Equipment>	equipmentList;
+    /**
+     * equipmentList: A mezőn levő eszközök
+     */
+    private Equipment	equipment;
 
     /**
      * Konstruktor
+     * Beállítja a privát adattafok értékeit
      */
     public Bunker()
     {
-        this.equipmentList = new ArrayList<>();
     }
 
     /**
-     * Hozzáadja a mezőhöz az eldobott felszerelést
+     * Hozzáadja a mezőhöz a paraméterben kapott felszerelést
      * @param _equipment felszerelés
      */
-    public void addEquipment( Equipment _equipment )
+    public boolean addEquipment( Equipment _equipment )
     {
-        this.equipmentList.add( _equipment );
+        this.equipment = _equipment;
+        return true;
     }
 
     /**
      * Visszaadja a mezőn levő összes eldobott felszerelést
      * @return a mezőn lévő felszerelések
      */
-    public List<Equipment> getEquipmentList()
+    public Equipment getEquipment()
     {
-        return this.equipmentList;
+        return this.equipment;
     }
 
     /**
-     * Leveszi a mezőről a felszerelést
-     * @param _equipment felszerelés
+     * Leveszi a mezőről a paraméterben megadott felszerelést
      */
-    public void removeEquipment( Equipment _equipment )
+    public void removeEquipment()
     {
-        this.equipmentList.remove( _equipment );
+        this.equipment = null;
     }
 }

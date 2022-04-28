@@ -6,9 +6,13 @@ package customexceptions;
  */
 public class GloveException extends Exception
 {
+    /**
+     * Konstruktor
+     * Továbbítja a hibaüzenetet az ősosztálynak
+     * @param msg a  hibaüzenet
+     */
     public GloveException(String msg)
     {
         super(msg);
     }
-
 }

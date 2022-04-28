@@ -5,11 +5,16 @@ package blindvirologist.collectible;
 
 
 /**
- * Védőkesztyű felszerelés
+ * Védőkesztyű osztály, egy eszköz.
+ * A viselőjére szórt ágenseket visszaszórja arra a virológusra aki azt szórta
  */
 public class GloveEquipment extends Equipment
 {
+    /**
+     * usableCount: kesztyű hatásának száma, hányszor használható még a kesztyű
+     */
     private int usableCount;
+
 
     /**
      * Konstruktor
@@ -21,7 +26,7 @@ public class GloveEquipment extends Equipment
     }
 
     /**
-     * Visszadobja a kenőre az ágenst
+     * A védőkesztyű akcióbeli hatása: visszaszórja az ágenst arra a virológusra aki szórta
      * @param _virologist a viselő virológus
      * @throws Exception kivétel
      */
@@ -36,7 +41,7 @@ public class GloveEquipment extends Equipment
     }
 
     /**
-     * Nincs hatása
+     * A védőkesztyűnek nincs felvételkori hatása
      * @param _virologist a viselő virológus
      */
     @Override
@@ -46,12 +51,19 @@ public class GloveEquipment extends Equipment
     }
 
     /**
-     * Nincs hatása
+     * A védőkesztyűnek nincs eldobáskori hatása
      * @param _virologist a viselő virológus
      */
     @Override
     public void removeEffect(Virologist _virologist)
     {
         return;
+    }
+
+    @Override
+    public String toString() {
+        return "GloveEquipment{" +
+                "usableCount=" + usableCount +
+                '}';
     }
 }

@@ -4,12 +4,13 @@ package blindvirologist.collectible;
 
 
 /**
- * Védőköpeny felszerelés
+ * Védőköpeny osztály, egy eszköz.
+ * Egy bizonyos százalékban kivédi a viselőjére szórt ágenseket
  */
 public class ProtectiveCaveEquipment extends Equipment
 {
     /**
-     * Ennek nincs hatása
+     * A védőköpenynek nincs felvételkori hatása
      * @param _virologist a viselő virológus
      */
     @Override
@@ -19,7 +20,7 @@ public class ProtectiveCaveEquipment extends Equipment
     }
 
     /**
-     * Ennek nincs hatása
+     * A védőköpenynek nincs eldobáskori hatása
      * @param _virologist a viselő virológus
      */
     @Override
@@ -29,7 +30,8 @@ public class ProtectiveCaveEquipment extends Equipment
     }
 
     /**
-     * Ágens szórás közben van hatása a virológusra
+     * A védőköpeny akcióbeli hatása.
+     * Ágens szórásakor kivéd(heti) a szórt ágenst, egy bizonyos (82.3) százalékkal
      * @param _virologist a viselő virológus
      */
     @Override
@@ -37,5 +39,10 @@ public class ProtectiveCaveEquipment extends Equipment
     {
         int random = (int)((Math.random() * (1000 - 1)) + 0);
         if ( random <= 823 ) throw new AgentBlockedException( "Védőköpeny" );
+    }
+
+    @Override
+    public String toString() {
+        return "ProtectiveCaveEquipment{}";
     }
 }

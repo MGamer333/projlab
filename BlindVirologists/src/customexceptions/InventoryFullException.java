@@ -6,6 +6,11 @@ package customexceptions;
  */
 public class InventoryFullException extends Exception
 {
+    /**
+     * Konstruktor
+     * Továbbítja a hibaüzenetet az ősosztálynak
+     * @param msg a  hibaüzenet
+     */
     public InventoryFullException(String msg)
     {
         super(msg);

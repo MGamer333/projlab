@@ -1,19 +1,28 @@
 package blindvirologist.field;
+    import blindvirologist.Virologist;
+    import skeleton.Logger;
 
-import skeleton.Logger;
 
 /**
- * Raktár mező
- * Ezen a mezőn gyűjthet alapanyagot a rajt
- * álló virológus
+ * Raktár mező, egy mező típus.
+ * Ezen a mezőn gyűjthet alapanyagot a rajta álló virológus
  */
 public class Storage extends Field
 {
+    /**
+     * aminoacidCount: A raktárban levő aminósav mennyiség
+     */
     private int aminoacidCount;
+
+    /**
+     * nucleotidCount: A raktárban levő nukleotid mennyiség
+     */
     private int nucleotidCount;
+
 
     /**
      * Konstruktor
+     * Beállítja a privát adattagok értékeit
      * @param _aminoacid a mezőn lévő aminósavak
      * @param _nucleotid a mezőn lévő nukleotidok
      */
@@ -29,6 +38,7 @@ public class Storage extends Field
      */
     public int getAminoacidCount()
     {
+        // TODO
         Logger.log(">", "Storage", "Aminosav lekerese");
         Logger.log("<", "Storage", "");
         return aminoacidCount;
@@ -40,13 +50,15 @@ public class Storage extends Field
      */
     public int getNucleotidCount()
     {
+        // TODO
         Logger.log(">", "Storage", "Nukleotid lekerese");
         Logger.log("<", "Storage", "C");
         return nucleotidCount;
     }
 
     /**
-     * Setter
+     * Raktárban levő nukleotid mennyiségét beállító setter metódus.
+     * Nukleotid levonása
      * @param nucleotidCount
      */
     public void setNucleotidCount(int nucleotidCount) {
@@ -56,12 +68,30 @@ public class Storage extends Field
     }
 
     /**
-     * Setter
+     * Raktárban levő aminósav mennyiségét beállító setter metódus.
+     * Aminósav levonása
      * @param aminoacidCount
      */
     public void setAminoacidCount(int aminoacidCount) {
         Logger.log(">", "Storage", "Aminosav levonasa");
         this.aminoacidCount = aminoacidCount;
         Logger.log("<", "Storage", "");
+    }
+
+    /**
+     * TODO
+     * MEDVEVÍRUS
+     * @param _virologist a virológus
+     */
+    @Override
+    public void addVirologist( Virologist _virologist )
+    {
+        this.currentVirologist = _virologist;
+
+        if ( _virologist.isBearAffected() )
+        {
+            this.aminoacidCount = 0;
+            this.nucleotidCount = 0;
+        }
     }
 }
