@@ -1,5 +1,7 @@
 # Blind Virologists #
 
+Blind Virologists is a desktop game written in Java. This was a university assignment.
+
 ### Author ###
 
 Marcell Németh
